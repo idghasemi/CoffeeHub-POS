@@ -1,0 +1,73 @@
+{
+  "product": "CoffeeHub",
+  "generated_at": "2026-07-30T15:14:39Z",
+  "validation_status": "VALIDATION_FAILED",
+  "mandatory_failures": [
+    {
+      "name": "fastapi-import",
+      "command": "import main:app",
+      "status": "failed",
+      "returncode": 1,
+      "note": ""
+    },
+    {
+      "name": "backend-import-scan",
+      "command": "import all backend modules",
+      "status": "failed",
+      "returncode": 1,
+      "note": ""
+    },
+    {
+      "name": "backend-tests",
+      "command": "pytest -q",
+      "status": "failed",
+      "returncode": 1,
+      "note": ""
+    },
+    {
+      "name": "frontend-dependencies",
+      "command": "npm ci --prefer-offline --no-audit --no-fund",
+      "status": "failed",
+      "returncode": 1,
+      "note": ""
+    }
+  ],
+  "acceptance_failures": [
+    {
+      "name": "acceptance-idempotency",
+      "command": "semantic release audit",
+      "status": "failed",
+      "returncode": 1,
+      "note": "financial retry protection"
+    },
+    {
+      "name": "acceptance-write-locking",
+      "command": "semantic release audit",
+      "status": "failed",
+      "returncode": 1,
+      "note": "SQLite mutable reads occur after write lock"
+    },
+    {
+      "name": "acceptance-no-direct-async-jpg-handler",
+      "command": "semantic release audit",
+      "status": "failed",
+      "returncode": 1,
+      "note": "no unobserved async JPG event promise"
+    }
+  ],
+  "default_accounts": [
+    {
+      "username": "admin",
+      "role": "system_admin"
+    },
+    {
+      "username": "men",
+      "role": "men_shift_supervisor"
+    },
+    {
+      "username": "women",
+      "role": "women_shift_supervisor"
+    }
+  ],
+  "security_note": "Change all initial passwords immediately after first login."
+}

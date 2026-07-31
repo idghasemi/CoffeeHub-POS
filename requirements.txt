@@ -1,0 +1,9 @@
+# CoffeeHub backend runtime dependencies
+# Supported Python version: 3.11+
+
+fastapi==0.140.0
+uvicorn[standard]==0.51.0
+SQLAlchemy==2.0.51
+pydantic==2.13.4
+python-multipart==0.0.32
+tzdata==2025.3

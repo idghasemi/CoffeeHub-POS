@@ -1,0 +1,24 @@
+node_modules/
+dist/
+build/
+
+venv/
+__pycache__/
+*.pyc
+
+.env
+
+*.db
+*.sqlite
+
+*.log
+
+.DS_Store
+Thumbs.db
+
+# Electron build files
+desktop/release/
+desktop/dist/
+
+# Executables
+*.exe

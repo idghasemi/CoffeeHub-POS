@@ -1,0 +1,60 @@
+{
+  "name": "coffeehub-desktop",
+  "productName": "CoffeeHub",
+  "version": "1.0.0",
+  "description": "CoffeeHub POS Desktop",
+  "author": "CoffeeHub",
+  "license": "ISC",
+  "main": "main.js",
+
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+
+  "build": {
+    "appId": "com.coffeehub.pos",
+    "productName": "CoffeeHub",
+
+    "directories": {
+      "output": "release"
+    },
+
+    "files": [
+      "main.js",
+      "preload.js"
+    ],
+
+    "extraResources": [
+      {
+        "from": "../backend/dist",
+        "to": "backend"
+      },
+      {
+        "from": "../frontend/dist",
+        "to": "frontend"
+      }
+    ],
+
+    "asar": true,
+
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico",
+      "artifactName": "CoffeeHub-Setup-${version}.${ext}"
+    },
+
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "runAfterFinish": true
+    }
+  },
+
+  "devDependencies": {
+    "electron": "^43.2.0",
+    "electron-builder": "^26.15.3"
+  }
+}
